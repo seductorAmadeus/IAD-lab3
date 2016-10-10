@@ -1,10 +1,28 @@
 package com.amadeus.IAD.Lab3;
 
-public class Nokta {
+public class Nokta implements Comparable {
     private float X, Y;
 
     Nokta(float X, float Y) {
         this.X = X;
         this.Y = Y;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        float result;
+        Nokta entry = (Nokta) o;
+        result = entry.X - X;
+        if (result != 0) {
+            return (int) (result / Math.abs(result));
+        }
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(X).append(" ").append(Y);
+        return stringBuilder.toString();
     }
 }
