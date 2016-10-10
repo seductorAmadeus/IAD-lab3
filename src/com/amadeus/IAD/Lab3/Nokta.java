@@ -8,6 +8,14 @@ public class Nokta implements Comparable {
         this.Y = Y;
     }
 
+    public float getX() {
+        return X;
+    }
+
+    public float getY() {
+        return Y;
+    }
+
     @Override
     public int compareTo(Object o) {
         float result;

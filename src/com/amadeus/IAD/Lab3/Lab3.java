@@ -13,7 +13,7 @@ public class Lab3 {
             printMenuItems();
             switch (in.nextLine()) {
                 case "1": {
-                    runCheck(getRadius());
+                    startChecking(getRadius());
                     actionWasSuccessfully = true;
                 }
                 case "2":
@@ -36,6 +36,7 @@ public class Lab3 {
             try {
                 System.out.println("Enter radius, please: ");
                 R = Double.valueOf(in.nextLine());
+                if (R < 0) throw new NumberFormatException();
                 break;
             } catch (NumberFormatException exp) {
                 System.out.println("Format error, re-enter radius ");
@@ -44,7 +45,7 @@ public class Lab3 {
         return R;
     }
 
-    private static void runCheck(double R) {
+    private static void startChecking(double R) {
 
         PriorityQueue<Nokta> priorityQueue = new PriorityQueue<Nokta>();
         priorityQueue.offer(new Nokta(3, 1));
@@ -60,9 +61,9 @@ public class Lab3 {
 
         Outline outline = new Outline(R);
         do {
-            Nokta example = iterator.next();
-            if (outline.checkValue()) {
-                System.out.println(example.toString());
+            Nokta nokta = iterator.next();
+            if (outline.checkValue(nokta)) {
+                System.out.println(nokta.toString());
             }
         } while (iterator.hasNext());
 
