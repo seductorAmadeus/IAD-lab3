@@ -23,8 +23,7 @@ public class Nokta implements Comparable {
         result = entry.X - X;
         if (result != 0) {
             return (int) (result / Math.abs(result));
-        }
-        return 0;
+        } else return 0;
     }
 
     @Override

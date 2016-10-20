@@ -20,7 +20,7 @@ public class Lab3 {
                     Runtime.getRuntime().exit(0);
                     break;
                 default:
-                    System.out.println("Re-enter menu item, please\n");
+                    System.out.println("Re-enter menu item (1 or 2), please\n");
             }
         }
     }
@@ -35,11 +35,13 @@ public class Lab3 {
         while (true) {
             try {
                 System.out.println("Enter radius, please: ");
-                R = Double.valueOf(in.nextLine());
-                if (R < 0) throw new NumberFormatException();
+                R = Double.valueOf(in.nextLine().replace(",", "."));
+                if (R < 0) throw new IllegalArgumentException();
                 break;
             } catch (NumberFormatException exp) {
-                System.out.println("Format error, re-enter radius ");
+                System.out.println("Format error, re-enter double value ( >=0 )");
+            } catch (IllegalArgumentException exp) {
+                System.out.println("Format error, re-enter radius ( >= 0)");
             }
         }
         return R;
