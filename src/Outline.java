@@ -7,9 +7,10 @@ public class Outline {
     }
 
     public boolean checkValue(Nokta nokta) {
-        return !(((nokta.getX() >= radius / 2) || (nokta.getX() <= (-1) * radius / 2)) || (
-                (nokta.getY() >= radius) || (nokta.getY() <= -radius / 2)
-        ));
+        float x = nokta.getX(), y = nokta.getY();
+        return (((x >= -this.radius / 2.0) && (x <= 0)) && ((y >= -this.radius / 2.0) && (y <= 0)) &&
+                ((Math.pow(x, 2) + Math.pow(y, 2) <= (Math.pow(this.radius, 2)))) ||
+                ((x <= this.radius / 2) && (x >= 0) && (y <= this.radius) && (y >= 0)) ||
+                ((x >= -this.radius / 2.0) && (x <= 0) && (y <= this.radius) && (y >= 0) && (y <= x + this.radius / 2.0)));
     }
-
 }
