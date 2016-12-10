@@ -11,14 +11,14 @@ public class Lab3 {
         while (!actionWasSuccessfully) {
             printMenuItems();
             switch (in.nextLine()) {
-                case "1": {
+                case "1": 
                     startChecking(getRadius());
                     actionWasSuccessfully = true;
-                }
+		    break;
                 case "2":
-                    Runtime.getRuntime().exit(0);
+		    actionWasSuccessfully = true;
                     break;
-                default:
+		default:
                     System.out.println("Re-enter menu item (1 or 2), please\n");
             }
         }
