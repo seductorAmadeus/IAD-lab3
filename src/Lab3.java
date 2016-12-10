@@ -1,5 +1,3 @@
-// variant 30103
-
 import java.util.*;
 
 public class Lab3 {
@@ -11,14 +9,14 @@ public class Lab3 {
         while (!actionWasSuccessfully) {
             printMenuItems();
             switch (in.nextLine()) {
-                case "1": 
+                case "1":
                     startChecking(getRadius());
                     actionWasSuccessfully = true;
-		    break;
-                case "2":
-		    actionWasSuccessfully = true;
                     break;
-		default:
+                case "2":
+                    actionWasSuccessfully = true;
+                    break;
+                default:
                     System.out.println("Re-enter menu item (1 or 2), please\n");
             }
         }
@@ -47,9 +45,9 @@ public class Lab3 {
     }
 
     private static void startChecking(double radius) {
-        PriorityQueue<Nokta> priorityQueue = new PriorityQueue<Nokta>();
+        PriorityQueue<Nokta> priorityQueue = new PriorityQueue<>();
         Nokta[] noktas = new Nokta[]{new Nokta(3, 1), new Nokta(0, 0), new Nokta(-1, -2), new Nokta(-2, 1), new Nokta(4, -3),
-                new Nokta(5, 5), new Nokta(-2, 1), new Nokta(-3, 4), new Nokta(-5, 5)};
+                new Nokta(5, 5), new Nokta(-2, 1), new Nokta(-3, -4), new Nokta(-5, 5)};
         for (Nokta nokta : noktas) {
             priorityQueue.offer(nokta);
         }
