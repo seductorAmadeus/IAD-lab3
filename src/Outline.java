@@ -1,14 +1,14 @@
 public class Outline {
 
-    private double R;
+    private double radius;
 
-    Outline(double R) {
-        this.R = R;
+    Outline(double radius) {
+        this.radius = radius;
     }
 
     public boolean checkValue(Nokta nokta) {
-        return !(((nokta.getX() >= R / 2) || (nokta.getX() <= (-1) * R / 2)) || (
-                (nokta.getY() >= R) || (nokta.getY() <= -R / 2)
+        return !(((nokta.getX() >= radius / 2) || (nokta.getX() <= (-1) * radius / 2)) || (
+                (nokta.getY() >= radius) || (nokta.getY() <= -radius / 2)
         ));
     }
 

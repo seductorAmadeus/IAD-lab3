@@ -30,12 +30,12 @@ public class Lab3 {
     }
 
     private static double getRadius() {
-        double R;
+        double radius;
         while (true) {
             try {
                 System.out.println("Enter radius, please: ");
-                R = Double.valueOf(in.nextLine().replace(",", "."));
-                if (R < 0) throw new IllegalArgumentException();
+                radius = Double.valueOf(in.nextLine().replace(",", "."));
+                if (radius < 0) throw new IllegalArgumentException();
                 break;
             } catch (NumberFormatException exp) {
                 System.out.println("Format error, re-enter double value ( >=0 )");
@@ -43,28 +43,23 @@ public class Lab3 {
                 System.out.println("Format error, re-enter radius ( >= 0)");
             }
         }
-        return R;
+        return radius;
     }
 
-    private static void startChecking(double R) {
-
+    private static void startChecking(double radius) {
         PriorityQueue<Nokta> priorityQueue = new PriorityQueue<Nokta>();
         Nokta[] noktas = new Nokta[]{new Nokta(3, 1), new Nokta(0, 0), new Nokta(-1, -2), new Nokta(-2, 1), new Nokta(4, -3),
                 new Nokta(5, 5), new Nokta(-2, 1), new Nokta(-3, 4), new Nokta(-5, 5)};
-
         for (Nokta nokta : noktas) {
             priorityQueue.offer(nokta);
         }
-
         Iterator<Nokta> iterator = priorityQueue.iterator();
-
-        Outline outline = new Outline(R);
+        Outline outline = new Outline(radius);
         do {
             Nokta nokta = iterator.next();
             if (outline.checkValue(nokta)) {
                 System.out.println(nokta.toString());
             }
         } while (iterator.hasNext());
-
     }
 }
