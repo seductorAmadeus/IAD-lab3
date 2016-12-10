@@ -1,4 +1,3 @@
-package com.amadeus.IAD.Lab3;
 // variant 30103
 
 import java.util.*;

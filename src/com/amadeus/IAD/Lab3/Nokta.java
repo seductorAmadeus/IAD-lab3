@@ -1,5 +1,3 @@
-package com.amadeus.IAD.Lab3;
-
 public class Nokta implements Comparable {
     private float X, Y;
 
