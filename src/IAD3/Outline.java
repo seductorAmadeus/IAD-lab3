@@ -1,4 +1,4 @@
-package itmo.lab3;
+package IAD3;
 
 public class Outline {
 
