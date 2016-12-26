@@ -8,14 +8,21 @@ public class Lab3 {
 
     public static void main(String[] args) {
         boolean actionWasSuccessfully = false;
+        int menuNumber;
         while (!actionWasSuccessfully) {
             printMenuItems();
-            switch (in.nextLine()) {
-                case "1":
+            try {
+                menuNumber = Integer.valueOf(in.nextLine());
+            } catch (NumberFormatException exp) {
+                System.out.println("Re-enter menu item (1 or 2), please\n");
+                continue;
+            }
+            switch (menuNumber) {
+                case 1:
                     startChecking(getRadius());
                     actionWasSuccessfully = true;
                     break;
-                case "2":
+                case 2:
                     actionWasSuccessfully = true;
                     break;
                 default:
@@ -47,7 +54,7 @@ public class Lab3 {
     }
 
     private static void startChecking(double radius) {
-        PriorityQueue<Nokta> priorityQueue = new PriorityQueue<>();
+        PriorityQueue<Nokta> priorityQueue = new PriorityQueue<Nokta>();
         Nokta[] noktas = new Nokta[]{new Nokta(3, 1), new Nokta(0, 0), new Nokta(-1, -2), new Nokta(-2, 1), new Nokta(4, -3),
                 new Nokta(5, 5), new Nokta(-2, 1), new Nokta(-3, -4), new Nokta(-5, 5)};
         for (Nokta nokta : noktas) {
